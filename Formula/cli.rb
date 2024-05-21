@@ -5,20 +5,20 @@
 class Cli < Formula
   desc "The Ampersand CLI"
   homepage ""
-  version "0.1.11"
+  version "0.1.12"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/amp-labs/cli/releases/download/v0.1.11/cli_Darwin_arm64.tar.gz"
-      sha256 "717f4367ab5d903f951fcbc86688480d01f88f1b25ee76a84758bcdb21d5be3f"
+    on_intel do
+      url "https://github.com/amp-labs/cli/releases/download/v0.1.12/cli_Darwin_x86_64.tar.gz"
+      sha256 "a298a6ed28e2c01bf48eb758e101b004d53a58f5823a679754fbbeb2bdcc10af"
 
       def install
         bin.install "amp"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/amp-labs/cli/releases/download/v0.1.11/cli_Darwin_x86_64.tar.gz"
-      sha256 "1d76b2f4b21e8afbf7a6cd632cf1dd3e48d2d92f97943acf6d1ad5b2b7b6ff9e"
+    on_arm do
+      url "https://github.com/amp-labs/cli/releases/download/v0.1.12/cli_Darwin_arm64.tar.gz"
+      sha256 "a6125d8a0f05c5213248513463a6626752e993ae323be9766fa75879635bb693"
 
       def install
         bin.install "amp"
@@ -27,20 +27,24 @@ class Cli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/amp-labs/cli/releases/download/v0.1.11/cli_Linux_arm64.tar.gz"
-      sha256 "9d88b0da510979c823feb5341918b30c606444958c52fb14f9999600ae293cc1"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/amp-labs/cli/releases/download/v0.1.12/cli_Linux_x86_64.tar.gz"
+        sha256 "0b4e3afc501d23c461d59dc54a7111a971d91497e389858e2d5ccdf0b86692ea"
 
-      def install
-        bin.install "amp"
+        def install
+          bin.install "amp"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/amp-labs/cli/releases/download/v0.1.11/cli_Linux_x86_64.tar.gz"
-      sha256 "5caada2d575e5072101111cd67d87d067a732fa487fef0168fadccdbfcb51db8"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/amp-labs/cli/releases/download/v0.1.12/cli_Linux_arm64.tar.gz"
+        sha256 "52bd5e23b625b136777b34d4fe6b612a1634783d80ac70cae43e1ed40ac36644"
 
-      def install
-        bin.install "amp"
+        def install
+          bin.install "amp"
+        end
       end
     end
   end
