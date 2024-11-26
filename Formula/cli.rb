@@ -5,20 +5,20 @@
 class Cli < Formula
   desc "The Ampersand CLI"
   homepage ""
-  version "1.0.6"
+  version "1.0.7"
 
   on_macos do
     on_intel do
-      url "https://github.com/amp-labs/cli/releases/download/v1.0.6/cli_Darwin_x86_64.tar.gz"
-      sha256 "0373b1ba89604ee216e0b340d08b546cfbd17d327de0d9dc989e6923190629c9"
+      url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Darwin_x86_64.tar.gz"
+      sha256 "86a69893bf8e4737a647710ac36eb7675792f7ce6a0b5fa7fe6f2decea77da94"
 
       def install
         bin.install "amp"
       end
     end
     on_arm do
-      url "https://github.com/amp-labs/cli/releases/download/v1.0.6/cli_Darwin_arm64.tar.gz"
-      sha256 "8fcdd800a6004b60205dea2612d8cc2bca19a80bff2bb77ecc002a18bfd9b6ab"
+      url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Darwin_arm64.tar.gz"
+      sha256 "8d9f0d2bc7c7f559e9c1258b9365542e90b79dcc12533f750719646857310df4"
 
       def install
         bin.install "amp"
@@ -29,8 +29,8 @@ class Cli < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/amp-labs/cli/releases/download/v1.0.6/cli_Linux_x86_64.tar.gz"
-        sha256 "a3e64cb14045cb7d5ba981a2cb5a2fd88754996d2db05ec313b0c8442a9e4280"
+        url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Linux_x86_64.tar.gz"
+        sha256 "fddbb69c6f2695774b0456977f72a6c1791baa99a95d133bf049c5757c037cdc"
 
         def install
           bin.install "amp"
@@ -39,8 +39,8 @@ class Cli < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/amp-labs/cli/releases/download/v1.0.6/cli_Linux_arm64.tar.gz"
-        sha256 "19be5869e537c290da75db3604ace596b57dc60fcca87555971453ca8da288cf"
+        url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Linux_arm64.tar.gz"
+        sha256 "56ec3c8d499d1b0c85fbcc27c2a0052706945dff5620b3acf937392986f5611f"
 
         def install
           bin.install "amp"
