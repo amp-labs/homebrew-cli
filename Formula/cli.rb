@@ -5,20 +5,20 @@
 class Cli < Formula
   desc "The Ampersand CLI"
   homepage ""
-  version "1.0.7"
+  version "1.0.8"
 
   on_macos do
-    on_intel do
-      url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Darwin_x86_64.tar.gz"
-      sha256 "86a69893bf8e4737a647710ac36eb7675792f7ce6a0b5fa7fe6f2decea77da94"
+    if Hardware::CPU.intel?
+      url "https://github.com/amp-labs/cli/releases/download/v1.0.8/cli_Darwin_x86_64.tar.gz"
+      sha256 "d113082b09d3d9bdb64a401548d43d27aa33efc4aea19ad4f22d0ee9a8e02168"
 
       def install
         bin.install "amp"
       end
     end
-    on_arm do
-      url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Darwin_arm64.tar.gz"
-      sha256 "8d9f0d2bc7c7f559e9c1258b9365542e90b79dcc12533f750719646857310df4"
+    if Hardware::CPU.arm?
+      url "https://github.com/amp-labs/cli/releases/download/v1.0.8/cli_Darwin_arm64.tar.gz"
+      sha256 "ffd01d0b125b3031002422cdeb0490e8bd8247961f1aa3f0f604a4765eb13df1"
 
       def install
         bin.install "amp"
@@ -27,20 +27,20 @@ class Cli < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Linux_x86_64.tar.gz"
-        sha256 "fddbb69c6f2695774b0456977f72a6c1791baa99a95d133bf049c5757c037cdc"
+        url "https://github.com/amp-labs/cli/releases/download/v1.0.8/cli_Linux_x86_64.tar.gz"
+        sha256 "f95d45244ad8d293ef5fa81656af16b0c4b96d2ac904088755629873888036f6"
 
         def install
           bin.install "amp"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/amp-labs/cli/releases/download/v1.0.7/cli_Linux_arm64.tar.gz"
-        sha256 "56ec3c8d499d1b0c85fbcc27c2a0052706945dff5620b3acf937392986f5611f"
+        url "https://github.com/amp-labs/cli/releases/download/v1.0.8/cli_Linux_arm64.tar.gz"
+        sha256 "c42fdf71461c3776072d958953eb831807c1ce508b52c45f4ab7eabba43d6062"
 
         def install
           bin.install "amp"
